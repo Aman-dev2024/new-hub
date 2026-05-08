@@ -1,38 +1,71 @@
-/* DEFAULT */
-.app {
+.search-container {
   display: flex;
-  min-height: 100vh;
-  transition: 0.3s;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-/* DARK THEME */
-.app.dark {
-  background-color: #05070d;
+.search-box {
+  width: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #393a3b;
+  padding: 14px;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 900px;
+}
+
+.search-box input {
+  flex: 1;
+  margin: 0 15px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.right-icons {
+  display: flex;
+  gap: 15px;
+  margin-right: 5px;
+}
+
+.right-icons svg {
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.right-icons svg:hover {
   color: white;
 }
 
-/* LIGHT THEME */
-.app.light {
-  background-color: #f5f6fa;
+.app.dark .search-box {
+  background: #1a1b1c;
+}
+
+.app.light .search-box {
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.app.dark .search-box input {
+  color: #ccc;
+}
+
+.app.light .search-box input {
   color: #111;
 }
 
-/* MAIN */
-.main {
-  flex: 1;
-  padding: 20px;
-}
-/* ========================= */
-/* 📱 MOBILE (<= 768px) */
-/* ========================= */
 @media (max-width: 768px) {
 
-  /* APP LAYOUT */
   .app {
     flex-direction: column;
   }
 
-  /* NAVBAR */
   .navbar {
     position: fixed;
     top: 10px;
@@ -46,24 +79,20 @@
     left: 10px;
   }
 
-  /* COLLAPSED */
   .navbar.collapsed {
     width: 70px;
     left: 10px;
   }
 
-  /* MAIN CONTENT */
   .main {
     padding: 15px;
   }
 
-  /* SEARCH BOX */
   .search-box {
     width: 100%;
     margin: 0;
   }
 
-  /* CATEGORY */
   .category {
     gap: 8px;
   }
@@ -73,22 +102,17 @@
     min-width: unset;
   }
 
-  /* NEWS GRID */
   .news-grid {
     grid-template-columns: 1fr;
   }
 
-  /* CARD */
   .news-card {
     height: auto;
   }
 }
-/* ========================= */
-/* 📲 TABLET */
-/* ========================= */
+
 @media (max-width: 1024px) {
 
-  /* NAVBAR SMALLER */
   .navbar {
     width: 180px;
   }
@@ -97,24 +121,19 @@
     width: 60px;
   }
 
-  /* NEWS GRID */
   .news-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* SEARCH */
   .search-box {
     width: 100%;
   }
 
-  /* CATEGORY */
   .category button {
     flex: 1 1 30%;
   }
 }
-/* ========================= */
-/* 💻 SMALL LAPTOP */
-/* ========================= */
+
 @media (max-width: 1300px) {
 
   .news-grid {

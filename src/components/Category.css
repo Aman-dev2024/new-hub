@@ -1,38 +1,84 @@
-/* DEFAULT */
-.app {
+.category {
   display: flex;
-  min-height: 100vh;
-  transition: 0.3s;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-/* DARK THEME */
-.app.dark {
-  background-color: #05070d;
+.category button {
+  background: #393a3b;
+  color: rgb(206, 199, 199);
+
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+
+  height: 45px;
+  min-width: 120px;
+
+  flex: 1;
+  margin: 0;
+
+  border: none;
+  outline: none;
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.category button:hover {
+  background-color: #515253;
+}
+
+.category button.active {
+  background: linear-gradient(135deg, #ff4ecb, #ff7a18);
   color: white;
 }
 
-/* LIGHT THEME */
-.app.light {
-  background-color: #f5f6fa;
-  color: #111;
+.app.dark .category button {
+  background: #1a1b1c;
+  color: #aaa;
 }
 
-/* MAIN */
-.main {
-  flex: 1;
-  padding: 20px;
+.app.dark .category button:hover {
+  background: #2a2b2c;
 }
-/* ========================= */
-/* 📱 MOBILE (<= 768px) */
-/* ========================= */
+
+.app.light .category button {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.app.light .category button:hover {
+  background: #e2e2e2;
+}
+
+.extra-category {
+  margin-top: 5px;
+}
+
+.extra-category {
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
 
-  /* APP LAYOUT */
   .app {
     flex-direction: column;
   }
 
-  /* NAVBAR */
   .navbar {
     position: fixed;
     top: 10px;
@@ -46,24 +92,20 @@
     left: 10px;
   }
 
-  /* COLLAPSED */
   .navbar.collapsed {
     width: 70px;
     left: 10px;
   }
 
-  /* MAIN CONTENT */
   .main {
     padding: 15px;
   }
 
-  /* SEARCH BOX */
   .search-box {
     width: 100%;
     margin: 0;
   }
 
-  /* CATEGORY */
   .category {
     gap: 8px;
   }
@@ -73,22 +115,17 @@
     min-width: unset;
   }
 
-  /* NEWS GRID */
   .news-grid {
     grid-template-columns: 1fr;
   }
 
-  /* CARD */
   .news-card {
     height: auto;
   }
 }
-/* ========================= */
-/* 📲 TABLET */
-/* ========================= */
+
 @media (max-width: 1024px) {
 
-  /* NAVBAR SMALLER */
   .navbar {
     width: 180px;
   }
@@ -97,24 +134,19 @@
     width: 60px;
   }
 
-  /* NEWS GRID */
   .news-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* SEARCH */
   .search-box {
     width: 100%;
   }
 
-  /* CATEGORY */
   .category button {
     flex: 1 1 30%;
   }
 }
-/* ========================= */
-/* 💻 SMALL LAPTOP */
-/* ========================= */
+
 @media (max-width: 1300px) {
 
   .news-grid {
